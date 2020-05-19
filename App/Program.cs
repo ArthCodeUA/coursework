@@ -52,9 +52,9 @@ namespace CW
                         Console.WriteLine("Which one do you want to choose?");
                         string perfChoice = Console.ReadLine();
                         Console.WriteLine($"You've chosen {theatre[Convert.ToInt32(perfChoice)-1].Name}");
-                        foreach (var VARIABLE in COLLECTION)
+                        foreach (Ticket ticket in theatre[Convert.ToInt32(perfChoice)-1])
                         {
-                            
+                            Console.WriteLine(ticket);
                         }
                         break;
                     case "3":
