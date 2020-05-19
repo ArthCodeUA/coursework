@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tickets", "Tickets\Tickets.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Other", "Other\Other.csproj", "{8175FAA4-D5E6-4930-9696-1FE90A23030F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer", "Customer\Customer.csproj", "{3B6C18AE-8D96-4E07-8742-DD25505CFF16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8175FAA4-D5E6-4930-9696-1FE90A23030F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8175FAA4-D5E6-4930-9696-1FE90A23030F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8175FAA4-D5E6-4930-9696-1FE90A23030F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6C18AE-8D96-4E07-8742-DD25505CFF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6C18AE-8D96-4E07-8742-DD25505CFF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6C18AE-8D96-4E07-8742-DD25505CFF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6C18AE-8D96-4E07-8742-DD25505CFF16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

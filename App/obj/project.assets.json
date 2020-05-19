@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Customer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Tickets": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Customer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Customer.dll": {}
+        }
+      },
       "Other/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -28,6 +41,11 @@
     }
   },
   "libraries": {
+    "Customer/1.0.0": {
+      "type": "project",
+      "path": "../Customer/Customer.csproj",
+      "msbuildProject": "../Customer/Customer.csproj"
+    },
     "Other/1.0.0": {
       "type": "project",
       "path": "../Other/Other.csproj",
@@ -41,6 +59,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Customer >= 1.0.0",
       "Tickets >= 1.0.0"
     ]
   },
@@ -68,6 +87,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "/Users/arthcode/RiderProjects/CW/Customer/Customer.csproj": {
+              "projectPath": "/Users/arthcode/RiderProjects/CW/Customer/Customer.csproj"
+            },
             "/Users/arthcode/RiderProjects/CW/Tickets/Tickets.csproj": {
               "projectPath": "/Users/arthcode/RiderProjects/CW/Tickets/Tickets.csproj"
             }

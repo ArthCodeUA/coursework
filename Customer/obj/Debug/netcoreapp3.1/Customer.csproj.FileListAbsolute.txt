@@ -1,0 +1,13 @@
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Customer.deps.json
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Customer.dll
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Customer.pdb
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Other.dll
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Tickets.dll
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Tickets.pdb
+/Users/arthcode/RiderProjects/CW/Customer/bin/Debug/netcoreapp3.1/Other.pdb
+/Users/arthcode/RiderProjects/CW/Customer/obj/Debug/netcoreapp3.1/Customer.csprojAssemblyReference.cache
+/Users/arthcode/RiderProjects/CW/Customer/obj/Debug/netcoreapp3.1/Customer.AssemblyInfoInputs.cache
+/Users/arthcode/RiderProjects/CW/Customer/obj/Debug/netcoreapp3.1/Customer.AssemblyInfo.cs
+/Users/arthcode/RiderProjects/CW/Customer/obj/Debug/netcoreapp3.1/Customer.csproj.CopyComplete
+/Users/arthcode/RiderProjects/CW/Customer/obj/Debug/netcoreapp3.1/Customer.dll
+/Users/arthcode/RiderProjects/CW/Customer/obj/Debug/netcoreapp3.1/Customer.pdb

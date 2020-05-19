@@ -16,7 +16,7 @@ namespace Tickets
         
         public override string ToString()
         {
-            return $"Ticket with price «{Price}» ₴";
+            return $"Ticket with price {Price} ₴";
         }
     }
 }

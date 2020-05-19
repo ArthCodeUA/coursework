@@ -1,6 +1,6 @@
 namespace Tickets
 {
-    public class Store
+    public class Afisha
     {
         public delegate void StackHandler(object sender, StoreHandlerArgs handlerArgs);
         public event StackHandler Inform;

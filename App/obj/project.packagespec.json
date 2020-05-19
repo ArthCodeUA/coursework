@@ -15,6 +15,9 @@
     "frameworks": {
       "netcoreapp3.1": {
         "projectReferences": {
+          "/Users/arthcode/RiderProjects/CW/Customer/Customer.csproj": {
+            "projectPath": "/Users/arthcode/RiderProjects/CW/Customer/Customer.csproj"
+          },
           "/Users/arthcode/RiderProjects/CW/Tickets/Tickets.csproj": {
             "projectPath": "/Users/arthcode/RiderProjects/CW/Tickets/Tickets.csproj"
           }

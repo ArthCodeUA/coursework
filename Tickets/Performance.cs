@@ -36,9 +36,9 @@ namespace Tickets
             _tickets.Add(new Ticket(price, this));
         }
 
-        public void RemoveTicket(int index)
+        public void RemoveTicket(Ticket ticket)
         {
-            _tickets.Remove(_tickets[index]);
+            _tickets.Remove(ticket);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

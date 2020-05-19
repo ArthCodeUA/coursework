@@ -6,15 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "App/1.0.0": {
-        "dependencies": {
-          "Customer": "1.0.0",
-          "Tickets": "1.0.0"
-        },
-        "runtime": {
-          "App.dll": {}
-        }
-      },
       "Customer/1.0.0": {
         "dependencies": {
           "Tickets": "1.0.0"
@@ -39,11 +30,6 @@
     }
   },
   "libraries": {
-    "App/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Customer/1.0.0": {
       "type": "project",
       "serviceable": false,

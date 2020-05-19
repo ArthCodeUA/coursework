@@ -14,3 +14,5 @@
 /Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.pdb
 /Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Other.dll
 /Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Other.pdb
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Customer.dll
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Customer.pdb
