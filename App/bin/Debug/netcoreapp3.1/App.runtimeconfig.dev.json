@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/arthcode/.dotnet/store/|arch|/|tfm|",
+      "/Users/arthcode/.nuget/packages"
+    ]
+  }
+}

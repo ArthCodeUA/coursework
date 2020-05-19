@@ -1,0 +1,16 @@
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/App
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/App.deps.json
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/App.runtimeconfig.json
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/App.runtimeconfig.dev.json
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/App.dll
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/App.pdb
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Tickets.dll
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Tickets.pdb
+/Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.csprojAssemblyReference.cache
+/Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.AssemblyInfoInputs.cache
+/Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.AssemblyInfo.cs
+/Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.csproj.CopyComplete
+/Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.dll
+/Users/arthcode/RiderProjects/CW/App/obj/Debug/netcoreapp3.1/App.pdb
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Other.dll
+/Users/arthcode/RiderProjects/CW/App/bin/Debug/netcoreapp3.1/Other.pdb

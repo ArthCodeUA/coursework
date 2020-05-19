@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Tickets/1.0.0": {
+        "dependencies": {
+          "Other": "1.0.0"
+        },
+        "runtime": {
+          "Tickets.dll": {}
+        }
+      },
+      "Other/1.0.0": {
+        "runtime": {
+          "Other.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Tickets/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Other/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

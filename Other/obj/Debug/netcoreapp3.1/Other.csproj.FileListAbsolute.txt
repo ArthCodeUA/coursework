@@ -1,0 +1,8 @@
+/Users/arthcode/RiderProjects/CW/Other/bin/Debug/netcoreapp3.1/Other.deps.json
+/Users/arthcode/RiderProjects/CW/Other/bin/Debug/netcoreapp3.1/Other.dll
+/Users/arthcode/RiderProjects/CW/Other/bin/Debug/netcoreapp3.1/Other.pdb
+/Users/arthcode/RiderProjects/CW/Other/obj/Debug/netcoreapp3.1/Other.csprojAssemblyReference.cache
+/Users/arthcode/RiderProjects/CW/Other/obj/Debug/netcoreapp3.1/Other.AssemblyInfoInputs.cache
+/Users/arthcode/RiderProjects/CW/Other/obj/Debug/netcoreapp3.1/Other.AssemblyInfo.cs
+/Users/arthcode/RiderProjects/CW/Other/obj/Debug/netcoreapp3.1/Other.dll
+/Users/arthcode/RiderProjects/CW/Other/obj/Debug/netcoreapp3.1/Other.pdb

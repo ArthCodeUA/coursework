@@ -1,0 +1,11 @@
+/Users/arthcode/RiderProjects/CW/Tickets/bin/Debug/netcoreapp3.1/Tickets.deps.json
+/Users/arthcode/RiderProjects/CW/Tickets/bin/Debug/netcoreapp3.1/Tickets.dll
+/Users/arthcode/RiderProjects/CW/Tickets/bin/Debug/netcoreapp3.1/Tickets.pdb
+/Users/arthcode/RiderProjects/CW/Tickets/obj/Debug/netcoreapp3.1/Tickets.csprojAssemblyReference.cache
+/Users/arthcode/RiderProjects/CW/Tickets/obj/Debug/netcoreapp3.1/Tickets.AssemblyInfoInputs.cache
+/Users/arthcode/RiderProjects/CW/Tickets/obj/Debug/netcoreapp3.1/Tickets.AssemblyInfo.cs
+/Users/arthcode/RiderProjects/CW/Tickets/obj/Debug/netcoreapp3.1/Tickets.dll
+/Users/arthcode/RiderProjects/CW/Tickets/obj/Debug/netcoreapp3.1/Tickets.pdb
+/Users/arthcode/RiderProjects/CW/Tickets/bin/Debug/netcoreapp3.1/Other.dll
+/Users/arthcode/RiderProjects/CW/Tickets/bin/Debug/netcoreapp3.1/Other.pdb
+/Users/arthcode/RiderProjects/CW/Tickets/obj/Debug/netcoreapp3.1/Tickets.csproj.CopyComplete
