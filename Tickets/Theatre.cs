@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Other;
 
 namespace Tickets
 {
     public class Theatre : Afisha, IAfisha, IEnumerable
     {
-        private List<Performance> _afisha;
-
         public Theatre(params Performance[] performances)
         {
-            _afisha = new List<Performance>();
             foreach (Performance performance in performances)
             {
                 _afisha.Add(performance);
@@ -22,9 +20,14 @@ namespace Tickets
         public void SellTicket(Performance performance, Ticket ticket)
         {
             performance.RemoveTicket(ticket);
-            StoreInform(
-                new StoreHandlerArgs($"Ticket with price {ticket.Price} on" +
-                                     $" performance {performance.Name} was sold!")
+            AfishaInform(
+                new AfishaHandlerArgs($"Ticket with price {ticket.Price} ₴ on" +
+                                      $" performance {performance.Name} was sold!")
+            );
+            if (performance.Count != 0) return;
+            RemovePerformance(performance);
+            AfishaInform(
+                new AfishaHandlerArgs($"Tickets on performance {performance.Name} was sold completely!")
             );
         }
 
@@ -33,12 +36,17 @@ namespace Tickets
             _afisha.Add(new Performance(name, author, genre, date));
         }
 
+        public void RemovePerformance(Performance performance)
+        {
+            _afisha.Remove(performance);
+        }
+
         public List<Performance> FilterByName(string name)
         {
             List<Performance> filtered = new List<Performance>();
             foreach (Performance performance in this)
             {
-                if (performance.Name.Contains(name))
+                if (performance.Name.ToLower().Contains(name.ToLower()))
                 {
                     filtered.Add(performance);
                 }
@@ -52,7 +60,7 @@ namespace Tickets
             List<Performance> filtered = new List<Performance>();
             foreach (Performance performance in this)
             {
-                if (performance.Author.Contains(author))
+                if (performance.Author.ToLower().Contains(author.ToLower()))
                 {
                     filtered.Add(performance);
                 }
@@ -66,7 +74,7 @@ namespace Tickets
             List<Performance> filtered = new List<Performance>();
             foreach (Performance performance in this)
             {
-                if (performance.Genre.Contains(genre))
+                if (performance.Genre.ToLower().Contains(genre.ToLower()))
                 {
                     filtered.Add(performance);
                 }

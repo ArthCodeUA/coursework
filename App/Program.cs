@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Tickets;
+using Other;
 using Customer;
 
 namespace CW
 {
-    //todo: Notifications across all project (events + delays)
-    //todo: Strict code refactoring
-    static class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             try
             {
@@ -29,15 +28,17 @@ namespace CW
                     new Performance("Danylo and his Clowns",
                         "Shiron Gunawardana", "Modern realism", "10/16/2020 14:00:00")
                 );
+                theatre.Inform += AfishaMessageHandler;
                 InitApp(theatre, client);
             }
             catch (FormatException e)
             {
+                Console.WriteLine(e.Message);
                 Console.WriteLine(Constants.FormatException);
             }
         }
 
-        static void InitApp(Theatre theatre, Client client)
+        private static void InitApp(Theatre theatre, Client client)
         {
             bool init = true;
             Console.WriteLine("Welcome to the Royal Theatre of Arthur the Great");
@@ -61,6 +62,7 @@ namespace CW
                         Console.WriteLine("2: Author");
                         Console.WriteLine("3: Genre");
                         Console.WriteLine("4: Date");
+                        Console.WriteLine();
                         string criteria = Console.ReadLine();
                         switch (criteria)
                         {
@@ -96,22 +98,36 @@ namespace CW
                     case "3":
                         Console.WriteLine();
                         Console.WriteLine("Here are tickets, that you already own:");
-                        foreach (Ticket ticket in client.Bought)
+                        if (client.Bought.Count == 0)
                         {
-                            Console.WriteLine(ticket + "\n" +
-                                              $"To the {ticket.Performance.Name}," +
-                                              $" that will be played on {ticket.Performance.Date}");
+                            Console.WriteLine(Constants.NoTicketsBought);
+                        }
+                        else
+                        {
+                            foreach (Ticket ticket in client.Bought)
+                            {
+                                Console.WriteLine(ticket + "\n" +
+                                                  $"To the {ticket.Performance.Name}," +
+                                                  $" that will be played on {ticket.Performance.Date}");
+                            }
                         }
 
                         break;
                     case "4":
                         Console.WriteLine();
                         Console.WriteLine("Here are tickets, that you only booked:");
-                        foreach (Ticket ticket in client.Booked)
+                        if (client.Bought.Count == 0)
                         {
-                            Console.WriteLine(ticket + "\n" +
-                                              $"To the {ticket.Performance.Name}," +
-                                              $" that will be played on {ticket.Performance.Date}");
+                            Console.WriteLine(Constants.NoTicketsBooked);
+                        }
+                        else
+                        {
+                            foreach (Ticket ticket in client.Booked)
+                            {
+                                Console.WriteLine(ticket + "\n" +
+                                                  $"To the {ticket.Performance.Name}," +
+                                                  $" that will be played on {ticket.Performance.Date}");
+                            }
                         }
 
                         break;
@@ -119,6 +135,7 @@ namespace CW
                         init = false;
                         break;
                     default:
+                        Console.WriteLine();
                         Console.WriteLine(Constants.WrongChoice);
                         break;
                 }
@@ -153,14 +170,8 @@ namespace CW
                 int chosen = Convert.ToInt32(Console.ReadLine());
                 if (chosen < i && chosen >= 1)
                 {
-                    if (performances == null)
-                    {
-                        ProcessPerformance(theatre, theatre[chosen - 1], client);
-                    }
-                    else
-                    {
-                        ProcessPerformance(theatre, performances[chosen - 1], client);
-                    }
+                    ProcessPerformance(theatre, performances == null ? theatre[chosen - 1] : performances[chosen - 1],
+                        client);
                 }
                 else
                 {
@@ -175,6 +186,7 @@ namespace CW
 
         static void ProcessPerformance(Theatre theatre, Performance performance, Client client)
         {
+            Console.WriteLine();
             Console.WriteLine($"You've chosen {performance.Name}");
             int i = 1;
             foreach (Ticket ticket in performance)
@@ -195,9 +207,10 @@ namespace CW
             }
         }
 
-        static void ProcessTicket(Theatre theatre, Performance performance, Ticket ticket, Client client)
+        private static void ProcessTicket(Theatre theatre, Performance performance, Ticket ticket, Client client)
         {
-            Console.WriteLine($"You've chosen ticket with price {ticket.Price}");
+            Console.WriteLine();
+            Console.WriteLine($"You've chosen ticket with price {ticket.Price} ₴");
             Console.WriteLine("Which action you want to do?");
             Console.WriteLine("1: Buy this ticket");
             Console.WriteLine("2: Book this ticket");
@@ -216,8 +229,15 @@ namespace CW
                     await Task.Delay(Constants.BookTime);
                     client.Booked.RemoveItem(ticket);
                     client.Bought.AddItem(ticket);
+                    Console.WriteLine($"Ticket with price {ticket.Price} ₴ on performance {ticket.Performance.Name}");
+                    Console.WriteLine("Was moved from booked tickets to your bought tickets.");
                 });
             }
+        }
+
+        private static void AfishaMessageHandler(object sender, AfishaHandlerArgs handlerArgs)
+        {
+            Console.WriteLine(handlerArgs.Message);
         }
     }
 }

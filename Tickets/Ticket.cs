@@ -2,8 +2,8 @@ namespace Tickets
 {
     public class Ticket
     {
-        private int _price;
-        private Performance _performance;
+        private readonly int _price;
+        private readonly Performance _performance;
 
         public Ticket(int price, Performance performance)
         {

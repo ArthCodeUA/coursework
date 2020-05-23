@@ -1,10 +1,10 @@
-namespace Tickets
+namespace Other
 {
-    public class StoreHandlerArgs
+    public class AfishaHandlerArgs
     {
         public string Message { get; }
 
-        public StoreHandlerArgs(string message)
+        public AfishaHandlerArgs(string message)
         {
             Message = message;
         }

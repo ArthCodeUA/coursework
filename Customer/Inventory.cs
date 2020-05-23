@@ -22,7 +22,7 @@ namespace Customer
             _inventory.Remove(item);
         }
         
-        public T this[int index] => _inventory[index];
+        public int Count => _inventory.Count;
 
         public IEnumerator GetEnumerator()
         {

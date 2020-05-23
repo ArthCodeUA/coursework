@@ -1,11 +1,20 @@
+using System.Collections.Generic;
+using Other;
 namespace Tickets
 {
     public class Afisha
     {
-        public delegate void StackHandler(object sender, StoreHandlerArgs handlerArgs);
-        public event StackHandler Inform;
+        protected readonly List<Performance> _afisha;
 
-        protected void StoreInform(StoreHandlerArgs handlerArgs)
+        protected Afisha()
+        {
+            _afisha = new List<Performance>();
+        }
+
+        public delegate void AfishaHandler(object sender, AfishaHandlerArgs handlerArgs);
+        public event AfishaHandler Inform;
+
+        protected void AfishaInform(AfishaHandlerArgs handlerArgs)
         {
             Inform?.Invoke(this, handlerArgs);
         }

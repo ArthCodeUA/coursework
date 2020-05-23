@@ -7,11 +7,11 @@ namespace Tickets
 {
     public class Performance : IEnumerable
     {
-        private string _name;
-        private string _author;
-        private string _genre;
-        private DateTime _date;
-        private List<Ticket> _tickets;
+        private readonly string _name;
+        private readonly string _author;
+        private readonly string _genre;
+        private readonly DateTime _date;
+        private readonly List<Ticket> _tickets;
 
         public Performance(string name, string author, string genre, string date)
         {
@@ -30,6 +30,7 @@ namespace Tickets
         public string Author => _author;
         public string Genre => _genre;
         public DateTime Date => _date;
+        public int Count => _tickets.Count;
 
         public void AddTicket(int price)
         {
