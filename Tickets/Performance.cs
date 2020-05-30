@@ -24,6 +24,8 @@ namespace Tickets
             {
                 AddTicket(Constants.TicketPrices[new Random().Next(0, Constants.TicketPrices.Length)]);
             }
+
+            _tickets.Sort((t1, t2) => t1.Price.CompareTo(t2.Price));
         }
 
         public string Name => _name;
@@ -35,6 +37,7 @@ namespace Tickets
         public void AddTicket(int price)
         {
             _tickets.Add(new Ticket(price, this));
+            _tickets.Sort((t1, t2) => t1.Price.CompareTo(t2.Price));
         }
 
         public void RemoveTicket(Ticket ticket)
@@ -46,7 +49,7 @@ namespace Tickets
         {
             return _tickets.GetEnumerator();
         }
-        
+
         public Ticket this[int index] => _tickets[index];
 
         public override string ToString()

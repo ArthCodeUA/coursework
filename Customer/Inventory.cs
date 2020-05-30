@@ -21,8 +21,15 @@ namespace Customer
         {
             _inventory.Remove(item);
         }
+
+        public int FindIndex(T item)
+        {
+            return _inventory.FindIndex(i => i.Equals(item));
+        }
         
         public int Count => _inventory.Count;
+        
+        public T this[int index] => _inventory[index];
 
         public IEnumerator GetEnumerator()
         {
