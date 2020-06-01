@@ -1,0 +1,8 @@
+@startuml
+class Clown {
+    int age;
+    int iq;
+    bool funny;
+    void makeFun();
+}
+@enduml

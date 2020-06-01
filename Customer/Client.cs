@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Linq;
-using Other;
+using System.Collections.Generic;
 using Tickets;
 
 namespace Customer
@@ -8,36 +7,29 @@ namespace Customer
     public class Client
     {
         private readonly string _name;
-        private readonly Inventory<Ticket> _tickets;
+        private readonly List<Ticket> _tickets;
         private int _balance;
 
         public Client()
         {
             _name = Environment.UserName;
-            _tickets = new Inventory<Ticket>();
+            _tickets = new List<Ticket>();
             _balance = Constants.DefaultBalance;
         }
 
-        public int BoughtTickets()
+        public List<Ticket> BoughtTickets()
         {
-            return _tickets.Cast<Ticket>().Count(ticket => ticket.State == TicketState.BOUGHT);
+            return _tickets.FindAll(ticket => ticket.State == TicketState.BOUGHT);
         }
 
-        public int BookedTickets()
+        public List<Ticket> BookedTickets()
         {
-            return _tickets.Cast<Ticket>().Count(ticket => ticket.State == TicketState.BOOKED);
+            return _tickets.FindAll(ticket => ticket.State == TicketState.BOOKED);
         }
 
         public void ChargeClient(int amount)
         {
-            if (_balance - amount >= 0)
-            {
-                _balance -= amount;
-            }
-            else
-            {
-                throw new NotEnoughMoneyException(Constants.NotEnoughMoney);
-            }
+            _balance -= amount;
         }
 
         public bool CanAfford(Ticket ticket)
@@ -45,8 +37,24 @@ namespace Customer
             return _balance - ticket.Price >= 0;
         }
 
+        public void AddTicket(Ticket ticket)
+        {
+            _tickets.Add(ticket);
+        }
+
+        public int FindTicket(Ticket ticket)
+        {
+            return _tickets.FindIndex(i => i.Equals(ticket));
+        }
+        
+        public void RemoveTicket(Ticket ticket)
+        {
+            _tickets.Remove(ticket);
+        }
+
         public string Name => _name;
         public int Balance => _balance;
-        public Inventory<Ticket> Tickets => _tickets;
+
+        public Ticket this[int index] => _tickets[index];
     }
 }

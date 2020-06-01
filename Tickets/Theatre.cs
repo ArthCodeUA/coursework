@@ -18,12 +18,13 @@ namespace Tickets
         {
             performance.RemoveTicket(ticket);
             AfishaInform(
-                new AfishaHandlerArgs($"Ticket with price {ticket.Price} ₴ on" +
-                                      $" performance {performance.Name} was sold!")
+                this, new AfishaHandlerArgs($"Ticket with price {ticket.Price} ₴ on" +
+                                            $" performance {performance.Name} was sold!")
             );
             if (performance.Count != 0) return;
             AfishaInform(
-                new AfishaHandlerArgs($"Tickets on performance {performance.Name} was sold completely!")
+                this, new AfishaHandlerArgs($"Tickets on performance {performance.Name}" +
+                                            " was sold completely!")
             );
             RemovePerformance(performance);
         }
@@ -32,7 +33,7 @@ namespace Tickets
         {
             _afisha.Add(new Performance(name, author, genre, date));
             AfishaInform(
-                new AfishaHandlerArgs($"Performance {name} by {author} was added to Afisha!")
+                this, new AfishaHandlerArgs($"Performance {name} by {author} was added to Afisha!")
             );
         }
 
@@ -40,7 +41,8 @@ namespace Tickets
         {
             _afisha.Remove(performance);
             AfishaInform(
-                new AfishaHandlerArgs($"Performance {performance.Name} by {performance.Author} was removed!")
+                this, new AfishaHandlerArgs($"Performance {performance.Name} " +
+                                            $"by {performance.Author} was removed!")
             );
         }
     }

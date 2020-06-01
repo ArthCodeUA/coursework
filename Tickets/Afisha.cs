@@ -16,9 +16,9 @@ namespace Tickets
         public delegate void AfishaHandler(object sender, AfishaHandlerArgs handlerArgs);
         public event AfishaHandler Inform;
 
-        protected void AfishaInform(AfishaHandlerArgs handlerArgs)
+        protected void AfishaInform(object sender, AfishaHandlerArgs handlerArgs)
         {
-            Inform?.Invoke(this, handlerArgs);
+            Inform?.Invoke(sender, handlerArgs);
         }
         
         public List<Performance> FilterByName(string name)

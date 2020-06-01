@@ -36,10 +36,6 @@ namespace CW
                 Console.WriteLine(e.Message);
                 Console.WriteLine(Constants.FormatException);
             }
-            catch (NotEnoughMoneyException e)
-            {
-                Console.WriteLine(e.Message);
-            }
         }
 
         private static void InitApp(Theatre theatre, Client client)
@@ -115,20 +111,17 @@ namespace CW
                     case "4":
                         Console.WriteLine();
                         Console.WriteLine("Here are tickets, that you already own:");
-                        if (client.BoughtTickets() == 0)
+                        if (client.BoughtTickets().Count == 0)
                         {
                             Console.WriteLine(Constants.NoTicketsBought);
                         }
                         else
                         {
-                            foreach (Ticket ticket in client.Tickets)
+                            foreach (Ticket ticket in client.BoughtTickets())
                             {
-                                if (ticket.State == TicketState.BOUGHT)
-                                {
-                                    Console.WriteLine(ticket + "\n" +
-                                                      $"To the {ticket.Performance.Name}," +
-                                                      $" that will be played on {ticket.Performance.Date}");
-                                }
+                                Console.WriteLine(ticket + "\n" +
+                                                  $"To the {ticket.Performance.Name}," +
+                                                  $" that will be played on {ticket.Performance.Date}");
                             }
                         }
 
@@ -136,20 +129,17 @@ namespace CW
                     case "5":
                         Console.WriteLine();
                         Console.WriteLine("Here are tickets, that you only booked:");
-                        if (client.BookedTickets() == 0)
+                        if (client.BookedTickets().Count == 0)
                         {
                             Console.WriteLine(Constants.NoTicketsBooked);
                         }
                         else
                         {
-                            foreach (Ticket ticket in client.Tickets)
+                            foreach (Ticket ticket in client.BookedTickets())
                             {
-                                if (ticket.State == TicketState.BOOKED)
-                                {
-                                    Console.WriteLine(ticket + "\n" +
-                                                      $"To the {ticket.Performance.Name}," +
-                                                      $" that will be played on {ticket.Performance.Date}");
-                                }
+                                Console.WriteLine(ticket + "\n" +
+                                                  $"To the {ticket.Performance.Name}," +
+                                                  $" that will be played on {ticket.Performance.Date}");
                             }
                         }
 
@@ -219,6 +209,7 @@ namespace CW
                 Console.WriteLine($"{i}: {ticket}");
                 i++;
             }
+
             Console.WriteLine();
             Console.WriteLine("Which ticket do you want to choose?");
             Console.WriteLine();
@@ -248,7 +239,9 @@ namespace CW
                 {
                     theatre.SellTicket(performance, ticket);
                     client.ChargeClient(ticket.Price);
-                    client.Tickets.AddItem(ticket.ChangeState(TicketState.BOUGHT));
+                    client.AddTicket(ticket.ChangeState(TicketState.BOUGHT));
+                    Console.WriteLine($"Ticket with price {ticket.Price} ₴ on performance {ticket.Performance.Name}");
+                    Console.WriteLine("Was successfully bought.");
                 }
                 else
                 {
@@ -258,20 +251,24 @@ namespace CW
             else if (action == "2")
             {
                 theatre.SellTicket(performance, ticket);
-                client.Tickets.AddItem(ticket.ChangeState(TicketState.BOOKED));
+                client.AddTicket(ticket.ChangeState(TicketState.BOOKED));
                 Task.Run(async delegate
                 {
                     await Task.Delay(Constants.BookTime);
                     if (client.CanAfford(ticket))
                     {
                         client.ChargeClient(ticket.Price);
-                        client.Tickets[client.Tickets.FindIndex(ticket)].ChangeState(TicketState.BOUGHT);
+                        client[client.FindTicket(ticket)].ChangeState(TicketState.BOUGHT);
                         Console.WriteLine(
                             $"Ticket with price {ticket.Price} ₴ on performance {ticket.Performance.Name}");
                         Console.WriteLine("Was moved from booked tickets to your bought tickets.");
                     }
                     else
                     {
+                        Console.WriteLine(
+                            $"Ticket with price {ticket.Price} ₴ on performance {ticket.Performance.Name}");
+                        Console.WriteLine("Wasn't moved from booked tickets to your bought tickets.");
+                        performance.AddTicket(ticket.ChangeState(TicketState.SELLING));
                         Console.WriteLine(Constants.NotEnoughMoney);
                     }
                 });

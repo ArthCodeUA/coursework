@@ -7,11 +7,11 @@ namespace Tickets
 {
     public class Performance : IEnumerable
     {
-        private readonly string _name;
-        private readonly string _author;
-        private readonly string _genre;
-        private readonly DateTime _date;
-        private readonly List<Ticket> _tickets;
+            private readonly string _name;
+            private readonly string _author;
+            private readonly string _genre;
+            private readonly DateTime _date;
+            private readonly List<Ticket> _tickets;
 
         public Performance(string name, string author, string genre, string date)
         {
@@ -37,6 +37,12 @@ namespace Tickets
         public void AddTicket(int price)
         {
             _tickets.Add(new Ticket(price, this));
+            _tickets.Sort((t1, t2) => t1.Price.CompareTo(t2.Price));
+        }
+
+        public void AddTicket(Ticket ticket)
+        {
+            _tickets.Add(ticket);
             _tickets.Sort((t1, t2) => t1.Price.CompareTo(t2.Price));
         }
 
