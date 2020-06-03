@@ -25,8 +25,8 @@ namespace CW
                         "Lin-Manuel Miranda", "Musical", "10/14/2020 14:00:00"),
                     new Performance("A Doll's House",
                         "Henrik Ibsen", "Modern tragedy", "10/15/2020 14:00:00"),
-                    new Performance("Danylo and his Clowns",
-                        "Shiron Gunawardana", "Modern realism", "10/16/2020 14:00:00")
+                    new Performance("Natalka Poltavka",
+                        "Mykola Lysenko", "Opera", "10/16/2020 14:00:00")
                 );
                 theatre.Inform += AfishaMessageHandler;
                 InitApp(theatre, client);
@@ -34,7 +34,6 @@ namespace CW
             catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine(Constants.FormatException);
             }
         }
 
@@ -158,10 +157,10 @@ namespace CW
         static void ProcessPerformances(Theatre theatre, Client client, List<Performance> performances = null)
         {
             Console.WriteLine();
-            Console.WriteLine("Here are all the performances in nearest time:");
             int i = 1;
             if (performances == null)
             {
+                Console.WriteLine("Here are all the performances in nearest time:");
                 foreach (Performance performance in theatre)
                 {
                     Console.WriteLine($"{i}: {performance}");
@@ -170,6 +169,7 @@ namespace CW
             }
             else
             {
+                Console.WriteLine("Here are performances found by your criteria:");
                 foreach (Performance performance in performances)
                 {
                     Console.WriteLine($"{i}: {performance}");
@@ -240,8 +240,8 @@ namespace CW
                     theatre.SellTicket(performance, ticket);
                     client.ChargeClient(ticket.Price);
                     client.AddTicket(ticket.ChangeState(TicketState.BOUGHT));
-                    Console.WriteLine($"Ticket with price {ticket.Price} ₴ on performance {ticket.Performance.Name}");
-                    Console.WriteLine("Was successfully bought.");
+                    Console.WriteLine($"Ticket with price {ticket.Price} ₴ on performance {ticket.Performance.Name}" +
+                                      " was added to your bought tickets");
                 }
                 else
                 {
